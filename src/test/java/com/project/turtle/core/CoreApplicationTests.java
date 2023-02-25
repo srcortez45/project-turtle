@@ -1,10 +1,10 @@
-package com.project.turtle.api;
+package com.project.turtle.core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class CoreApplicationTests {
 
 	@Test
 	void contextLoads() {
