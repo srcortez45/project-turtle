@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class UserModel {
+public class UserDAO {
 
         @Id
         @Column(name= "id")

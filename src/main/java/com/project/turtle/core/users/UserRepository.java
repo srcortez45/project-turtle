@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserModel,Long>  {
+public interface UserRepository extends JpaRepository<UserDAO,Long>  {
     
-    @Query("SELECT 1 FROM UserModel u WHERE u.email=:email AND u.rawPass=:pass")
+    @Query("SELECT 1 FROM UserDAO u WHERE u.email=:email AND u.rawPass=:pass")
     Optional<Integer> findByEmail(String email, String pass);
 }

@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/verifyAccount", method = RequestMethod.POST,consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+    @RequestMapping(value = "/verify-account", method = RequestMethod.POST,consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE,
         MediaType.MULTIPART_FORM_DATA_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE)
     public LoginModel verifyAccount(@RequestParam Map<String, String> user){
         UserCredentials userCredentials = new UserCredentials(user.get("username"),user.get("password"));

@@ -27,6 +27,21 @@ jobs:
         java-version: '17'
         distribution: 'microsoft'
         cache: maven
+
+    - name: Adding secrets
+      run: |
+          sed -i -e "15 c\ $DB_HOST" src/main/resources/application.properties
+          sed -i -e "18 c\ $DB_USER" src/main/resources/application.properties
+          sed -i -e "19 c\ $DB_CRED" src/main/resources/application.properties
+          sed -i -e "4 c\  $PORT"    src/main/resources/application.properties
+          cat src/main/resources/application.properties
+      shell: bash
+      env:
+        DB_HOST: ${{secrets.MYSQL_HOST}}
+        DB_USER: ${{secrets.MYSQL_USER}}
+        DB_CRED: ${{secrets.MYSQL_CRED}}
+        PORT: ${{secrets.PORT}}
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
