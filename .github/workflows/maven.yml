@@ -28,11 +28,12 @@ jobs:
         distribution: 'microsoft'
         cache: maven
 
-    - name: Create env file
-      shell: bash
-      run: echo "${{ secrets.ENVFILE }}" > .env
-
     - name: Build with Maven
+      env:
+        DB_HOST: ${{secrets.MYSQL_HOST}}
+        DB_USER: ${{secrets.MYSQL_USER}}
+        DB_CRED: ${{secrets.MYSQL_CRED}}
+        PORT: ${{secrets.PORT}}
       run: mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
